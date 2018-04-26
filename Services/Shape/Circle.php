@@ -13,7 +13,8 @@ class Circle extends BaseShape implements IShape
      */
     protected function validateAttributes()
     {
-        //handle validation here and throw exception if failed
+        //handle validation here and set isValid
+        $this->isValid = true;
     }
 
     /**

@@ -1,20 +1,14 @@
 <?php
 namespace Services\Shape;
 
-class Square extends BaseShape implements IShape
+class NullShape extends BaseShape implements IShape
 {
-    /**
-     * The shape definition format, could be Matrix or binary (image)
-     */
-    const DEFINITION_FORMAT = 'binary';
-
     /**
      * validate the attributes are enough to define this shape
      */
     protected function validateAttributes()
     {
-        //handle validation here and set isValid
-        $this->isValid = true;
+        $this->isValid = false;
     }
 
     /**
@@ -30,9 +24,9 @@ class Square extends BaseShape implements IShape
     /**
      * The unique logic to define this shape
      */
-    protected function definition()
+    protected function definition() : null
     {
-        //handle shape drawing algo here
+        return null;
     }
 
     /**
@@ -42,6 +36,6 @@ class Square extends BaseShape implements IShape
      */
     protected function definitionFormat() : string
     {
-        return self::DEFINITION_FORMAT;
+        return '';
     }
 }

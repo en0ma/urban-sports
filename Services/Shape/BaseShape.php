@@ -18,6 +18,11 @@ abstract class BaseShape
     protected $attributes;
 
     /**
+     * @var bool
+     */
+    protected $isValid;
+
+    /**
      * Create a shape instance and set basic attributes
      *
      * @param string $type
@@ -27,7 +32,6 @@ abstract class BaseShape
     {
         $this->type = $type;
         $this->attributes = $attributes;
-
         $this->validateAttributes();
     }
 
@@ -40,9 +44,18 @@ abstract class BaseShape
     {
         return [
             'type' => $this->type,
+            'is_valid' => $this->valid(),
             'definition' => $this->definition(),
             'definition_format' => $this->definitionFormat(),
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function valid(): bool
+    {
+        return $this->isValid;
     }
 
     abstract protected function definition();
